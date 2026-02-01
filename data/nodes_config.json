@@ -1,0 +1,16 @@
+{
+  "nodes": {
+    "10.255.0.1": {
+      "address": "localhost:50051",
+      "name": "spine-01"
+    },
+    "10.255.0.11": {
+      "address": "localhost:50052",
+      "name": "leaf-01"
+    },
+    "10.255.0.12": {
+      "address": "localhost:50053",
+      "name": "leaf-02"
+    }
+  }
+}

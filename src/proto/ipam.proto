@@ -1,0 +1,79 @@
+syntax = "proto3";
+
+package ipam;
+
+// Тип маршрута
+enum RouteType {
+    ROUTE_TYPE_UNSPECIFIED = 0;
+    ROUTE_TYPE_CONNECTED = 1;
+    ROUTE_TYPE_STATIC = 2;
+}
+
+// Address family
+enum AddressFamily {
+    AF_UNSPECIFIED = 0;
+    AF_IPV4 = 1;
+    AF_IPV6 = 2;
+}
+
+// Маршрут
+message Route {
+    string prefix = 1;
+    string interface = 2;
+    RouteType route_type = 3;
+    string role = 4;
+    string description = 5;
+    AddressFamily af = 6;
+}
+
+// Запрос на получение маршрутов с узла
+message GetRoutesRequest {
+    AddressFamily af = 1;  // Если не указан - возвращать все
+}
+
+// Ответ с маршрутами узла
+message GetRoutesResponse {
+    string node_id = 1;
+    repeated Route routes = 2;
+}
+
+// Действие над маршрутом
+enum RouteAction {
+    ROUTE_ACTION_UNSPECIFIED = 0;
+    ROUTE_ACTION_ADD = 1;
+    ROUTE_ACTION_DELETE = 2;
+}
+
+// Инструкция по изменению маршрута
+message RouteInstruction {
+    RouteAction action = 1;
+    Route route = 2;
+}
+
+// Запрос на применение изменений
+message ApplyChangesRequest {
+    repeated RouteInstruction instructions = 1;
+}
+
+// Результат применения одной инструкции
+message InstructionResult {
+    bool success = 1;
+    string error_message = 2;
+    Route route = 3;
+}
+
+// Ответ на применение изменений
+message ApplyChangesResponse {
+    bool success = 1;
+    repeated InstructionResult results = 2;
+}
+
+// Сервис агента на узле (клиентское приложение - эмуляция коммутатора)
+// IPAM сервер подключается к этому сервису для получения/изменения маршрутов
+service NodeAgent {
+    // Получить текущие маршруты с узла
+    rpc GetRoutes(GetRoutesRequest) returns (GetRoutesResponse);
+
+    // Применить изменения к маршрутам
+    rpc ApplyChanges(ApplyChangesRequest) returns (ApplyChangesResponse);
+}

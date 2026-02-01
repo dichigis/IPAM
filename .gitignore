@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+.venv/
+ENV/
+
+# Logs
+logs/*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Generated proto files (regenerate with scripts/generate_proto.sh)
+# src/ipam/proto_gen/ipam_pb2.py
+# src/ipam/proto_gen/ipam_pb2_grpc.py
