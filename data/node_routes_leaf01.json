@@ -1,0 +1,133 @@
+{
+  "node_id": "10.255.0.11",
+  "routes": [
+    {
+      "prefix": "10.255.0.11/32",
+      "interface": "Loopback0",
+      "route_type": "connected",
+      "role": "loopback",
+      "description": "Node loopback",
+      "af": "ipv4"
+    },
+    {
+      "prefix": "10.0.1.1/31",
+      "interface": "Ethernet1",
+      "route_type": "connected",
+      "role": "p2p_link",
+      "description": "Connected on Ethernet1",
+      "af": "ipv4"
+    },
+    {
+      "prefix": "10.100.0.1/24",
+      "interface": "Vlan100",
+      "route_type": "connected",
+      "role": "p2p_link",
+      "description": "Connected on Vlan100",
+      "af": "ipv4"
+    },
+    {
+      "prefix": "10.255.0.1/32",
+      "interface": "Ethernet1",
+      "route_type": "static",
+      "role": "loopback",
+      "description": "spine-01 loopback",
+      "af": "ipv4"
+    },
+    {
+      "prefix": "10.255.0.12/32",
+      "interface": "Ethernet1",
+      "route_type": "static",
+      "role": "loopback",
+      "description": "leaf-02 loopback",
+      "af": "ipv4"
+    },
+    {
+      "prefix": "fd00:255::11/128",
+      "interface": "Loopback0",
+      "route_type": "connected",
+      "role": "loopback",
+      "description": "Node loopback",
+      "af": "ipv6"
+    },
+    {
+      "prefix": "fd00:0:1::1/127",
+      "interface": "Ethernet1",
+      "route_type": "connected",
+      "role": "p2p_link",
+      "description": "Connected on Ethernet1",
+      "af": "ipv6"
+    },
+    {
+      "prefix": "fd00:100::1/64",
+      "interface": "Vlan100",
+      "route_type": "connected",
+      "role": "p2p_link",
+      "description": "Connected on Vlan100",
+      "af": "ipv6"
+    },
+    {
+      "prefix": "fd00:255::1/128",
+      "interface": "Ethernet1",
+      "route_type": "static",
+      "role": "loopback",
+      "description": "spine-01 loopback v6",
+      "af": "ipv6"
+    },
+    {
+      "prefix": "10.255.0.13/32",
+      "interface": "Ethernet1",
+      "route_type": "static",
+      "role": "loopback",
+      "description": "leaf-03 loopback",
+      "af": "ipv4"
+    },
+    {
+      "prefix": "10.100.2.0/24",
+      "interface": "Ethernet1",
+      "route_type": "static",
+      "role": "server_network",
+      "description": "Server VLAN 102",
+      "af": "ipv4"
+    },
+    {
+      "prefix": "10.100.1.0/24",
+      "interface": "Ethernet1",
+      "route_type": "static",
+      "role": "server_network",
+      "description": "Server VLAN 101",
+      "af": "ipv4"
+    },
+    {
+      "prefix": "fd00:255::13/128",
+      "interface": "Ethernet1",
+      "route_type": "static",
+      "role": "loopback",
+      "description": "leaf-03 loopback v6",
+      "af": "ipv6"
+    },
+    {
+      "prefix": "fd00:255::12/128",
+      "interface": "Ethernet1",
+      "route_type": "static",
+      "role": "loopback",
+      "description": "leaf-02 loopback v6",
+      "af": "ipv6"
+    },
+    {
+      "prefix": "fd00:102::/64",
+      "interface": "Ethernet1",
+      "route_type": "static",
+      "role": "server_network",
+      "description": "Server VLAN 102 v6",
+      "af": "ipv6"
+    },
+    {
+      "prefix": "fd00:101::/64",
+      "interface": "Ethernet1",
+      "route_type": "static",
+      "role": "server_network",
+      "description": "Server VLAN 101 v6",
+      "af": "ipv6"
+    }
+  ]
+}
